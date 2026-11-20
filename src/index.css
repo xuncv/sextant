@@ -1,0 +1,72 @@
+:root {
+  /* 深水与黄铜：海图的两种颜色 */
+  --ink-0: #04121d;
+  --ink-1: #071a2b;
+  --ink-2: #0b2b3f;
+  --foam: #e6f1f6;
+  --muted: #8ba7b7;
+  --brass: #d8a24a;
+  --brass-dim: rgba(216, 162, 74, 0.16);
+  --line: rgba(230, 241, 246, 0.12);
+
+  --sans: system-ui, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', Roboto, sans-serif;
+  --serif: 'Iowan Old Style', Georgia, 'Songti SC', 'Noto Serif SC', 'Times New Roman', serif;
+  --mono: ui-monospace, 'SFMono-Regular', Consolas, monospace;
+
+  font: 16px/1.65 var(--sans);
+  color: var(--foam);
+  background-color: var(--ink-0);
+  color-scheme: dark;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100svh;
+  background-image:
+    radial-gradient(60rem 40rem at 78% -10%, rgba(19, 78, 106, 0.55), transparent 70%),
+    radial-gradient(45rem 35rem at 8% 105%, rgba(11, 43, 63, 0.9), transparent 70%),
+    linear-gradient(180deg, var(--ink-0), #03101a 60%, var(--ink-0));
+  background-attachment: fixed;
+}
+
+/* 海图经纬网 */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background-image:
+    linear-gradient(to right, var(--line) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--line) 1px, transparent 1px);
+  background-size: 96px 96px, 96px 96px;
+  mask-image: radial-gradient(ellipse 90% 70% at 50% 30%, #000 20%, transparent 80%);
+  opacity: 0.35;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+h1,
+h2 {
+  margin: 0;
+  font-weight: 500;
+  color: #fff;
+}
+
+p {
+  margin: 0;
+}
+
+::selection {
+  background: var(--brass);
+  color: var(--ink-0);
+}
